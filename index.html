@@ -21,7 +21,7 @@
     </nav>
 
     <!-- ================= HERO / EXPERTISE SECTION ================= -->
-    <header id="about" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 90px 20px; text-align: center;">
+    <header id="about" style="background: linear-gradient(135deg, #022c22 0%, #064e3b 100%); color: #ffffff; padding: 90px 20px; text-align: center;">
         <div style="max-width: 850px; margin: 0 auto;">
             <span style="background-color: rgba(16, 185, 129, 0.15); color: #34d399; padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Software Engineer & Data Specialist</span>
             <h1 style="font-size: 42px; font-weight: 800; margin: 20px 0 15px 0; letter-spacing: -1px;">Hi, I'm Joy Mutuku</h1>
@@ -93,7 +93,7 @@
     </section>
 
     <!-- ================= CONTACT & INFO SECTION ================= -->
-    <footer id="contact" style="background-color: #0f172a; color: #ffffff; padding: 70px 20px; text-align: center;">
+    <footer id="contact" style="background-color: #022c22; color: #ffffff; padding: 70px 20px; text-align: center;">
         <div style="max-width: 600px; margin: 0 auto;">
             <h2 style="font-size: 28px; font-weight: 800; margin: 0 0 10px 0; color: #ffffff;">Let's Connect</h2>
             <p style="color: #94a3b8; margin-bottom: 35px;">I am currently open to internship, contract, and full-time engineering roles.</p>
@@ -112,7 +112,7 @@
         const username = 'joymutuku0-source';
         const container = document.getElementById('github-repos-container');
 
-        fetch('https://github.com' + username + '/repos?sort=updated')
+        fetch('https://github.com' + username + '/repos?sort=updated',{ mode: 'cors'})
             .then(function(response) {
                 return response.json();
             })
