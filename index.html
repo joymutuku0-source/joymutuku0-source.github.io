@@ -39,17 +39,33 @@
         </div>
     </header>
 
-    <!-- ================= DYNAMIC GITHUB REPOSITORIES SECTION ================= -->
+        <!-- ================= GITHUB REPOSITORIES SECTION ================= -->
     <section id="repos" style="padding: 80px 20px; max-width: 1100px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 50px;">
             <h2 style="font-size: 28px; font-weight: 800; color: #0f172a; margin: 0 0 10px 0;">Live GitHub Repositories</h2>
-            <p style="color: #64748b; margin: 0;">Loaded dynamically from my GitHub profile.</p>
+            <p style="color: #64748b; margin: 0;">A transparent view of the systems and code structures I build.</p>
         </div>
 
-        <div id="github-repos-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-            <p style="text-align: center; color: #64748b; grid-column: 1/-1;">Connecting to GitHub API...</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            
+            <!-- Main Core Project Card -->
+            <div style="background: #ffffff; border-radius: 12px; padding: 28px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <span style="font-size: 24px;">📦</span>
+                        <span style="font-size: 10px; font-weight: bold; color: #10b981; background: #d1fae5; padding: 4px 10px; border-radius: 6px; font-family: monospace; text-transform: uppercase;">HTML / CSS</span>
+                    </div>
+                    <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #0f172a; font-weight: 700;">joymutuku0-source.github.io</h3>
+                    <p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0;">My main professional architecture hub. Built to showcase core concepts in web engineering, analytical software logic, and clean interface systems.</p>
+                </div>
+                <div style="margin-top: 25px; border-top: 1px solid #f1f5f9; padding-top: 15px;">
+                    <a href="https://github.com" target="_blank" style="color: #10b981; text-decoration: none; font-weight: 600; font-size: 14px;">Source Code & Readme →</a>
+                </div>
+            </div>
+
         </div>
     </section>
+
 
     <!-- ================= CERTIFICATIONS SECTION ================= -->
     <section id="credentials" style="background-color: #f1f5f9; padding: 80px 20px;">
@@ -107,53 +123,8 @@
         </div>
     </footer>
 
-    <!-- ================= AUTOMATIC REPOSITORY FETCH SCRIPT ================= -->
-    <script>
-        const username = 'joymutuku0-source';
-        const container = document.getElementById('github-repos-container');
-
-        fetch('https://github.com' + username + '/repos?sort=updated',{ mode: 'cors'})
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(repos) {
-                container.innerHTML = '';
-                const filteredRepos = repos.filter(function(repo) {
-                    return repo.name !== username + '.github.io';
-                });
-                
-                if (filteredRepos.length === 0) {
-                    container.innerHTML = '<p style="text-align: center; color: #64748b; grid-column: 1/-1;">No other public repositories found.</p>';
-                    return;
-                }
-
-                filteredRepos.forEach(function(repo) {
-                    const card = document.createElement('div');
-                    card.style.cssText = "background: #ffffff; border-radius: 12px; padding: 28px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);";
-                    
-                    let lang = repo.language ? repo.language : 'Code';
-                    let desc = repo.description ? repo.description : 'No description provided. Click below to view the file tree and codebase.';
-                    
-                    card.innerHTML = '<div>' +
-                        '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">' +
-                            '<span style="font-size: 24px;">📦</span>' +
-                            '<span style="font-size: 10px; font-weight: bold; color: #10b981; background: #d1fae5; padding: 4px 10px; border-radius: 6px; font-family: monospace; text-transform: uppercase;">' + lang + '</span>' +
-                        '</div>' +
-                        '<h3 style="margin: 0 0 10px 0; font-size: 18px; color: #0f172a; font-weight: 700;">' + repo.name + '</h3>' +
-                        '<p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0;">' + desc + '</p>' +
-                    '</div>' +
-                    '<div style="margin-top: 25px; border-top: 1px solid #f1f5f9; padding-top: 15px;">' +
-                        '<a href="' + repo.html_url + '" target="_blank" style="color: #10b981; text-decoration: none; font-weight: 600; font-size: 14px;">Source Code & Readme →</a>' +
-                    '</div>';
-                    
-                    container.appendChild(card);
-                });
-            })
-            .catch(function(error) {
-                container.innerHTML = '<p style="text-align: center; color: #ef4444; grid-column: 1/-1;">Failed to load repositories.</p>';
-            });
-    </script>
-
+    
+           
 </body>
 </html>
     
